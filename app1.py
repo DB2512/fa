@@ -61,7 +61,7 @@ if data.empty:
     y = data['Excess_Return']
     
     # 确保X和y的尺寸匹配
-    if len(X) != len(y):
+if len(X) != len(y):
     raise ValueError("X和y的长度不匹配。")
     
     # 为自变量添加常数项
