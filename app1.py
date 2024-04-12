@@ -51,6 +51,25 @@ def analyze_stock(ticker_symbol, start_date, end_date, start_period_1, end_perio
     import statsmodels.api as sm
     from scipy import stats
 
+    def perform_regression(data):
+    # 检查并处理可能的问题
+    data = data.dropna()  # 移除含NaN值的行
+    if data.empty:
+        raise ValueError("数据为空，无法进行回归分析。")
+        
+    X = data[['Mkt-RF', 'SMB', 'HML', 'RMW', 'CMA']]
+    y = data['Excess_Return']
+    
+    # 确保X和y的尺寸匹配
+    if len(X) != len(y):
+        raise ValueError("X和y的长度不匹配。")
+    
+    # 为自变量添加常数项
+    X = sm.add_constant(X)
+    
+    # 执行OLS回归分析
+    model = sm.OLS(y, X).fit()
+    return model
     # 定义一个用于执行回归分析并返回模型结果的函数
     def perform_regression(data):
         # 因子作为自变量
