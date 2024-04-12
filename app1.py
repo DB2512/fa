@@ -53,7 +53,7 @@ def analyze_stock(ticker_symbol, start_date, end_date, start_period_1, end_perio
 
     def perform_regression(data):
     # 检查并处理可能的问题
-    data = data.dropna()  # 移除含NaN值的行
+    data = data.dropna() #移除含NaN值的行
     if data.empty:
     raise ValueError("数据为空，无法进行回归分析。")
         
