@@ -18,7 +18,7 @@ start_period_2 = st.date_input('第二时间段开始日期')
 end_period_2 = st.date_input('第二时间段结束日期')
 
 # Fama-French 五因子模型数据路径
-file_path = "data/F-F_Research_Data_5_Factors_2x3.csv"
+file_path = "https://github.com/DB2512/fa/blob/master/date/F-F_Research_Data_5_Factors_2x3.csv"
 # 读取 Fama-French 五因子模型数据
 factors_df = pd.read_csv(file_path, index_col='Date')
 factors_df.index = pd.to_datetime(factors_df.index, format='%Y%m').strftime('%Y-%m-%d')
