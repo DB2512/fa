@@ -69,7 +69,7 @@ if len(X) != len(y):
     
     # 执行OLS回归分析
     model = sm.OLS(y, X).fit()
-    return model
+     return model
     # 定义一个用于执行回归分析并返回模型结果的函数
     def perform_regression(data):
         # 因子作为自变量
